@@ -1,0 +1,63 @@
+<form [formGroup]="usersForm" class="model card">
+    <h2 *ngIf="page" class="card-title">Create User</h2>
+    <h2 *ngIf="!page" class="card-title">Edit User</h2>
+    <div class="row">
+        <div class="col-lg-6 col-xs-12 col-sm-6">
+            <div class="form-group">
+                <label>User Name <span class="text-danger"> *</span></label>
+                <input type="text" name="Username" class="form-control" placeholder="User Name"
+                    formControlName="Username"
+                    [ngClass]="{ 'is-invalid': submitted && formControls['Username'].errors }" />
+                <div *ngIf="submitted && formControls['Username'].errors" class="invalid-feedback">
+                    <div *ngIf="formControls['Username'].errors['required']">User Name is required</div>
+                    <div *ngIf="formControls['Username'].errors['maxlength']">User Name cannot be longer than 50
+                        characters</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xs-12 col-sm-6">
+            <div class="form-group">
+                <label>Email <span class="text-danger"> *</span></label>
+                <input type="text" name="Email" class="form-control" placeholder="Email" formControlName="Email"
+                    [ngClass]="{ 'is-invalid': submitted && formControls['Email'].errors }" />
+                <div *ngIf="submitted && formControls['Email'].errors" class="invalid-feedback">
+                    <div *ngIf="formControls['Email'].errors['required']">Email is required</div>
+                    <div *ngIf="formControls['Email'].errors['maxlength']">Email cannot be longer than 255 characters
+                    </div>
+                    <div *ngIf="formControls['Email'].errors['pattern']">Invalid Email</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xs-12 col-sm-6">
+            <div class="form-group">
+                <label>Phone <span class="text-danger"> *</span></label>
+                <input type="text" name="Phone" class="form-control" placeholder="Phone" formControlName="Phone"
+                    [ngClass]="{ 'is-invalid': submitted && formControls['Phone'].errors }" />
+                <div *ngIf="submitted && formControls['Phone'].errors" class="invalid-feedback">
+                    <div *ngIf="formControls['Phone'].errors['required']">Phone is required</div>
+                    <div *ngIf="formControls['Phone'].errors['maxlength']">Phone cannot be longer than 10 numbers</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xs-12 col-sm-6">
+            <div class="form-group">
+                <label>Website </label>
+                <input type="text" name="Website" class="form-control" placeholder="Website"
+                    formControlName="Website" />
+            </div>
+        </div>
+    </div>
+    <div style="text-align: right; margin-top: 17px;">
+        <button type="button" class="btn-cancel" routerLink="/admin/users/user-list"
+            (click)="BacktoList()">Cancel</button>
+        <button *ngIf="!page" type="submit" (click)="update()" class="btn-update">Update</button>
+        <button *ngIf="page" type="submit" (click)="save()" class="btn-update">Save</button>
+    </div>
+</form>
+
+<div class="overlay" *ngIf="loading">
+    <div class="center">
+        <mat-spinner color="primary" mode="indeterminate" diameter="40">
+        </mat-spinner>
+    </div>
+</div>

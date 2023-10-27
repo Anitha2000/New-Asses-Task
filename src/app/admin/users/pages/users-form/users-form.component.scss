@@ -1,0 +1,45 @@
+.profile-form-bg {
+    background: #f0f2f3;
+    padding: 50px 0;
+}
+
+.profile-form {
+    background-color: #fff;
+    width: 80%;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+label {
+    color: #333;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.mt-10 {
+    margin-top: 10vh;
+}
+
+.profile-form h3 {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+    padding-bottom: 13px;
+    color: #000000;
+    text-transform: capitalize;
+}
+
+.form-control {
+    font-size: 14px;
+}
+
+.form-group {
+    margin-bottom: 0.5rem;
+}
+
+.model {
+    margin: 100px;
+    padding: 100px;
+    overflow: hidden;
+}
